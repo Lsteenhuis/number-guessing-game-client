@@ -1,15 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { UserData } from './user-data/interfaces/userData';
 
 @Component({
   selector: 'app-number-guessing-game',
   templateUrl: './number-guessing-game.component.html',
   styleUrls: ['./number-guessing-game.component.scss']
 })
-export class NumberGuessingGameComponent implements OnInit {
+export class NumberGuessingGameComponent {
+  public userData: UserData | undefined;
 
-  constructor() { }
-
-  ngOnInit(): void {
+  public setUserData(userData: UserData) {
+    this.userData = userData;
   }
 
+  public isUserDataSet(): boolean {
+    return this.userData === undefined;
+  }
 }

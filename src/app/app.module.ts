@@ -3,20 +3,20 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { NumberGuessingGameComponent } from './number-guessing-game/number-guessing-game.component';
+import { NumberGuessingGameModule } from './number-guessing-game/number-guessing-game.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    NumberGuessingGameComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule
+    NumberGuessingGameModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [
+    AppComponent
+  ]
 })
-export class AppModule { }
+export class AppModule {
+}
