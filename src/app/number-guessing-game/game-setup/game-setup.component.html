@@ -1,0 +1,11 @@
+<div class="game-setup-wrapper">
+  <form class="form-inline" (ngSubmit)="startNewGame()">
+    <div class="form-group d-flex flex-column" [formGroup]="gameSettingsForm">
+      <label for="amountOfNumbersToGuessInput">
+        How many numbers do you want to guess?
+      </label>
+      <input id="amountOfNumbersToGuessInput" class="margin-bottom-25" type="number" formControlName="amountOfNumbersToGuess">
+      <button class="btn btn-primary" type="submit" [disabled]="!gameSettingsForm.valid">Click here to start a new game!</button>
+    </div>
+  </form>
+</div>

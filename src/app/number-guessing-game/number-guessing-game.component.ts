@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { UserData } from './user-data/interfaces/userData';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-number-guessing-game',
@@ -14,6 +15,6 @@ export class NumberGuessingGameComponent {
   }
 
   public isUserDataSet(): boolean {
-    return this.userData === undefined;
+    return this.userData !== undefined;
   }
 }

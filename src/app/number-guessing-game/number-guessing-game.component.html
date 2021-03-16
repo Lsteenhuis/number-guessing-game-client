@@ -1,6 +1,7 @@
 <div class="container">
   <div id="number-guessing-game-wrapper">
-    <user-data *ngIf="isUserDataSet()" (userDataEventEmitter)="setUserData($event)"></user-data>
+    <user-data *ngIf="!isUserDataSet()" (userDataEventEmitter)="setUserData($event)"></user-data>
+    <game-setup *ngIf="isUserDataSet()"></game-setup>
   </div>
 </div>
 

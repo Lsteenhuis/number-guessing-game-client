@@ -4,11 +4,13 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NumberGuessingGameComponent } from './number-guessing-game.component';
 import { UserDataComponent } from './user-data/user-data.component';
 import { BrowserModule } from '@angular/platform-browser';
+import { GameSetupComponent } from './game-setup/game-setup.component';
 
 @NgModule({
   declarations: [
     NumberGuessingGameComponent,
-    UserDataComponent
+    UserDataComponent,
+    GameSetupComponent
   ],
   imports: [
     NgbModule,
