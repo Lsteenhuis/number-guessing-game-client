@@ -1,6 +1,5 @@
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Component, EventEmitter, Output } from '@angular/core';
-import { UserData } from '../user-data/interfaces/playerData';
 import { GameSettings } from './interfaces/game-settings';
 
 @Component({
@@ -16,7 +15,7 @@ export class GameSetupComponent {
 
   public constructor(private readonly formBuilder: FormBuilder) {
     this.gameSettingsForm = this.formBuilder.group({
-      amountOfNumbersToGuess: new FormControl('', [Validators.required]),
+      amountOfNumbersToGuess: new FormControl('', [Validators.required])
     });
   }
 
