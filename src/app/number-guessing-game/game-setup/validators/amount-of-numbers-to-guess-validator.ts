@@ -5,14 +5,9 @@ export function validateAmountOfNumbersToGuess(control: AbstractControl) {
     return { validateAmountOfNumbersToGuess: { valid: false } };
   }
 
-  const amountOfNumbers: Number = getLengthOfNumber(control.value);
-  if (amountOfNumbers >= 4 && amountOfNumbers <= 8) {
+  if (control.value >= 4 && control.value <= 8) {
     return null;
   }
 
   return { validateAmountOfNumbersToGuess: { valid: false } };
-}
-
-function getLengthOfNumber(number: number) {
-  return number.toString().length;
 }
