@@ -2,14 +2,14 @@ import { NgModule } from '@angular/core';
 import { NgbInputDatepickerConfig, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NumberGuessingGameComponent } from './number-guessing-game.component';
-import { UserDataComponent } from './user-data/user-data.component';
+import { PlayerDataComponent } from './player-data/player-data.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { GameSetupComponent } from './game-setup/game-setup.component';
 
 @NgModule({
   declarations: [
     NumberGuessingGameComponent,
-    UserDataComponent,
+    PlayerDataComponent,
     GameSetupComponent
   ],
   imports: [

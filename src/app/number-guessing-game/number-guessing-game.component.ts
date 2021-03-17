@@ -1,6 +1,5 @@
-import { Component, Input } from '@angular/core';
-import { UserData } from './user-data/interfaces/userData';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Component } from '@angular/core';
+import { PlayerData } from './player-data/interfaces/playerData';
 
 @Component({
   selector: 'app-number-guessing-game',
@@ -8,13 +7,13 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./number-guessing-game.component.scss']
 })
 export class NumberGuessingGameComponent {
-  public userData: UserData | undefined;
+  public playerData: PlayerData | undefined;
 
-  public setUserData(userData: UserData) {
-    this.userData = userData;
+  public setPlayerData(playerData: PlayerData) {
+    this.playerData = playerData;
   }
 
-  public isUserDataSet(): boolean {
-    return this.userData !== undefined;
+  public isPlayerDataSet(): boolean {
+    return this.playerData !== undefined;
   }
 }

@@ -1,6 +1,6 @@
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Component, EventEmitter, Output } from '@angular/core';
-import { UserData } from '../user-data/interfaces/userData';
+import { UserData } from '../user-data/interfaces/playerData';
 import { GameSettings } from './interfaces/game-settings';
 
 @Component({

@@ -1,6 +1,6 @@
 <div>
   <form class="form-inline" (ngSubmit)="onSubmit()">
-    <div class="form-group d-flex flex-column" [formGroup]="userForm">
+    <div class="form-group d-flex flex-column" [formGroup]="playerDataForm">
       <div class="user-name-wrapper margin-bottom-5">
         <label for="userNameInput">
           First Name:
@@ -22,7 +22,7 @@
         <button class="btn btn-outline-secondary calendar" (click)="datepicker.toggle()" type="button"><i class="bi bi-calendar-date"></i>
         </button>
       </div>
-      <button class="btn btn-primary" type="submit" [disabled]="!userForm.valid">Submit</button>
+      <button class="btn btn-primary" type="submit" [disabled]="!playerDataForm.valid">Submit</button>
     </div>
   </form>
 </div>
