@@ -6,6 +6,7 @@ import { PlayerDataComponent } from './player-data/player-data.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { GameSetupComponent } from './game-setup/game-setup.component';
 import { PlayAreaComponent } from './play-area/play-area.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { PlayAreaComponent } from './play-area/play-area.component';
     NgbModule,
     FormsModule,
     ReactiveFormsModule,
-    BrowserModule
+    BrowserModule,
+    HttpClientModule
   ],
   exports: [
     NumberGuessingGameComponent
