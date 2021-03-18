@@ -47,7 +47,7 @@ export class PlayAreaComponent implements OnInit {
   }
 
   public get playerDateOfBirth(): string {
-    return <string> this.gameSession?.player.userDateOfBirth;
+    return <string> this.gameSession?.playerData.userDateOfBirth;
   }
 
   public checkUserAnswer(): void {

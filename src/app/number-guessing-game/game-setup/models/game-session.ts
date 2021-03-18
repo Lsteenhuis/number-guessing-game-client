@@ -1,8 +1,10 @@
 import { GameHints } from '../enums/game-hints';
 import { PlayerData } from '../../player-data/models/playerData';
+import { GameMetaData } from './game-meta-data';
 
 export class GameSession {
   private _isSolved: boolean = false;
+  private _gameMetaData: GameMetaData = new GameMetaData();
 
   public constructor(private _id: string,
                      private _amountOfNumbersToGuess: number,
@@ -18,27 +20,25 @@ export class GameSession {
     return this._id;
   }
 
-  public set id(value: string) {
-    this._id = value;
-  }
-
   public get amountOfNumbersToGuess(): number {
     return this._amountOfNumbersToGuess;
-  }
-
-  public set amountOfNumbersToGuess(value: number) {
-    this._amountOfNumbersToGuess = value;
   }
 
   public get isSolved(): boolean {
     return this._isSolved;
   }
 
-  public get player(): PlayerData {
+  public get playerData(): PlayerData {
     return this._player;
   }
 
+  public addPlayerEntrySpeed(value: number): void {
+    this._gameMetaData.addEntrySpeedToList(value);
+  }
+
   public compareUserInputToAnswer(userInputNumber: number): string {
+    this._gameMetaData.incrementGuessesByOne();
+
     const gameHints: GameHints[] = this.createHintString(userInputNumber);
     this.checkIfGameIsSolved(gameHints);
 
@@ -49,7 +49,6 @@ export class GameSession {
     const hintArray: GameHints[] = [];
     const userInputString: string[] = [...userInputNumber.toString()];
 
-    // eslint-disable-next-line no-plusplus
     for (let i = 0; i < this._amountOfNumbersToGuess; i++) {
       const currentUserNumber: string = userInputString[i];
       const currentAnswerNumber: string = this.answer[i];

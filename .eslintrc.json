@@ -26,6 +26,7 @@
     "prefer-destructuring": "off",
     "no-underscore-dangle": ["error", { "allowAfterThis": true }],
     "class-methods-use-this": "off",
+    "no-plusplus": "off",
     "max-len": ["error", 140, 2, {
       "ignoreComments": true,
       "ignoreUrls": true
