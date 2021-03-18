@@ -2,17 +2,17 @@ import { Component } from '@angular/core';
 import { PlayerData } from './player-data/interfaces/playerData';
 import { ProgressState } from './progress-tracker/enums/progress-state';
 import { ProgressTrackerService } from './progress-tracker/progress-tracker.service';
-import { GameSettings } from './game-setup/interfaces/game-settings';
+import { GameSession } from './game-setup/models/game-session';
 
 @Component({
   selector: 'app-number-guessing-game',
   templateUrl: './number-guessing-game.component.html',
-  styleUrls: ['./number-guessing-game.component.scss']
+  styleUrls: ['./number-guessing-game.component.scss'],
 })
 export class NumberGuessingGameComponent {
   public progressState: ProgressState = ProgressState.PlayerData;
   public playerData: PlayerData | undefined;
-  public gameSettings: GameSettings | undefined;
+  public gameSettings: GameSession | undefined;
 
   public constructor(private readonly progressTrackerService: ProgressTrackerService) {
   }
@@ -23,7 +23,7 @@ export class NumberGuessingGameComponent {
     this.goToNextState();
   }
 
-  public setGameSettings(gameSettings: GameSettings) {
+  public setGameSettings(gameSettings: GameSession) {
     this.gameSettings = gameSettings;
 
     this.goToNextState();
@@ -31,5 +31,9 @@ export class NumberGuessingGameComponent {
 
   public goToNextState(): void {
     this.progressState = this.progressTrackerService.getNextStep(this.progressState);
+  }
+
+  public goToPreviousState(): void {
+    this.progressState = this.progressTrackerService.getPreviousStep(this.progressState);
   }
 }

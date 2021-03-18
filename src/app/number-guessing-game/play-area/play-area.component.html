@@ -1,0 +1,18 @@
+<div>
+  <div class="margin-bottom-25">{{gameHint}}</div>
+  <div class="form-group d-flex flex-column" [formGroup]="playerAnswerForm">
+    <div class="user-input-wrapper margin-bottom-25">
+      <div class="margin-bottom-25">
+        <label for="player-number-input">
+          Chosen Number:
+        </label>
+        <input id="player-number-input" class="form-control" type="number" formControlName="userInput">
+      </div>
+
+      <div class="game-button-wrapper margin-bottom-25">
+        <button class="btn btn-primary  margin-right-25" type="submit" [disabled]="playerAnswerForm.invalid" (click)="checkUserAnswer()">Submit</button>
+        <button class="btn btn-secondary" type="submit" [disabled]="!gameSession?.isSolved" (click)="startNewGame()">Start new Game!</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,5 +1,5 @@
 export enum GameHints {
   BOAT = 'boat',
-  BUOY = 'BUOY',
+  BUOY = 'buoy',
   MINE = '*'
 }

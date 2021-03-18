@@ -7,6 +7,9 @@
       <div *ngSwitchCase="'GameSetup'">
         <game-setup (gameSettingsEventEmitter)="setGameSettings($event)"></game-setup>
       </div>
+      <div *ngSwitchCase="'PlayGame'">
+        <play-area-app [gameSession]="gameSettings" (startNewGameEventListener)="goToPreviousState()"></play-area-app>
+      </div>
     </div>
   </div>
 </div>

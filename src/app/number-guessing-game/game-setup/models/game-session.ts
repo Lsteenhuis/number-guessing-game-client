@@ -33,11 +33,11 @@ export class GameSession {
     return this._isSolved;
   }
 
-  public compareUserInputToAnswer(userInputNumber: number): string[] {
+  public compareUserInputToAnswer(userInputNumber: number): string {
     const gameHints: GameHints[] = this.createHintString(userInputNumber);
     this.checkIfGameIsSolved(gameHints);
 
-    return gameHints;
+    return gameHints.join(' ');
   }
 
   private generateRandomNumber(amountOfNumbers: number): string {

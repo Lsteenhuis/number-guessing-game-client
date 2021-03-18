@@ -19,7 +19,17 @@
     "import/extensions": "off",
     "import/prefer-default-export": "off",
     "object-property-newline": "off",
-    "comma-dangle": ["error", "never"]
+    "comma-dangle": ["error", "never"],
+    "no-useless-constructor": "off",
+    "no-empty-function": ["error", { "allow": ["constructors"] }],
+    "lines-between-class-members": ["warn", "always", { "exceptAfterSingleLine": true }],
+    "prefer-destructuring": "off",
+    "no-underscore-dangle": ["error", { "allowAfterThis": true }],
+    "class-methods-use-this": "off",
+    "max-len": ["error", 140, 2, {
+      "ignoreComments": true,
+      "ignoreUrls": true
+    }]
   },
   "settings": {
     "import/resolver": {
