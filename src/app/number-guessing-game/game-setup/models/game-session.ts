@@ -1,11 +1,13 @@
 import { GameHints } from '../enums/game-hints';
+import { PlayerData } from '../../player-data/models/playerData';
 
 export class GameSession {
   private _isSolved: boolean = false;
   private readonly _answer: string;
 
   public constructor(private _id: string,
-                     private _amountOfNumbersToGuess: number) {
+                     private _amountOfNumbersToGuess: number,
+                     private _player: PlayerData) {
     this._answer = this.generateRandomNumber(_amountOfNumbersToGuess);
   }
 
@@ -31,6 +33,10 @@ export class GameSession {
 
   public get isSolved(): boolean {
     return this._isSolved;
+  }
+
+  public get player(): PlayerData {
+    return this._player;
   }
 
   public compareUserInputToAnswer(userInputNumber: number): string {

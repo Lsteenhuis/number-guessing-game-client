@@ -46,6 +46,10 @@ export class PlayAreaComponent implements OnInit {
     this.gameHint = '*'.repeat(this.gameSession.amountOfNumbersToGuess);
   }
 
+  public get playerDateOfBirth(): string {
+    return <string> this.gameSession?.player.userDateOfBirth;
+  }
+
   public checkUserAnswer(): void {
     const userInput: number = this.playerAnswerForm.value.userInput;
 

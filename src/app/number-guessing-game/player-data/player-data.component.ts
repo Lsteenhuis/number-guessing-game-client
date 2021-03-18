@@ -1,7 +1,16 @@
-import { Component, EventEmitter, Output } from '@angular/core';
-import { NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { PlayerData } from './interfaces/playerData';
+import {
+  Component,
+  EventEmitter,
+  Output
+} from '@angular/core';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators
+} from '@angular/forms';
+import { PlayerData } from './models/playerData';
+import { PlayerDataFactory } from './factories/player-data.factory';
 
 @Component({
   selector: 'player-data',
@@ -14,7 +23,8 @@ export class PlayerDataComponent {
 
   public playerDataForm: FormGroup;
 
-  public constructor(private readonly formBuilder: FormBuilder) {
+  public constructor(private readonly formBuilder: FormBuilder,
+                     private readonly playerDataFactory: PlayerDataFactory) {
     this.playerDataForm = this.formBuilder.group({
       userName: new FormControl('', [Validators.required]),
       userDateOfBirth: new FormControl('', [Validators.required])
@@ -22,6 +32,10 @@ export class PlayerDataComponent {
   }
 
   public onSubmit(): void {
-    this.playerDataEventEmitter.emit(this.playerDataForm.value);
+    const playerData: PlayerData = this.playerDataFactory.create(
+      this.playerDataForm.value.userName,
+      this.playerDataForm.value.userDateOfBirth);
+
+    this.playerDataEventEmitter.emit(playerData);
   }
 }

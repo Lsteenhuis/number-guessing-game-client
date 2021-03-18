@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { PlayerData } from './player-data/interfaces/playerData';
+import { PlayerData } from './player-data/models/playerData';
 import { ProgressState } from './progress-tracker/enums/progress-state';
 import { ProgressTrackerService } from './progress-tracker/progress-tracker.service';
 import { GameSession } from './game-setup/models/game-session';

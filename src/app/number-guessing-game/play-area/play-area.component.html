@@ -1,17 +1,30 @@
 <div>
-  <div class="margin-bottom-25">{{gameHint}}</div>
-  <div class="form-group d-flex flex-column" [formGroup]="playerAnswerForm">
-    <div class="user-input-wrapper margin-bottom-25">
-      <div class="margin-bottom-25">
+  <div class="row">
+    <p>GameId: {{gameSession?.id}}<br/>
+      PlayerName: {{gameSession?.player?.userName}}<br/>
+      Date of Birth: {{gameSession?.player?.userDateOfBirth}}<br/>
+    </p>
+  </div>
+  <div class="row">
+    <div class="game-hint-wrapper margin-bottom-25">
+      <p>{{gameHint}}</p><br/>
+    </div>
+  </div>
+  <div class="row">
+    <div class="form-group d-flex flex-column" [formGroup]="playerAnswerForm">
+      <div class="user-input-wrapper">
         <label for="player-number-input">
           Chosen Number:
         </label>
         <input id="player-number-input" class="form-control" type="number" formControlName="userInput">
-      </div>
 
-      <div class="game-button-wrapper margin-bottom-25">
-        <button class="btn btn-primary  margin-right-25" type="submit" [disabled]="playerAnswerForm.invalid" (click)="checkUserAnswer()">Submit</button>
-        <button class="btn btn-secondary" type="submit" [disabled]="!gameSession?.isSolved" (click)="startNewGame()">Start new Game!</button>
+        <div class="game-button-wrapper margin-bottom-25">
+          <button class="btn btn-primary  margin-right-25" type="submit" [disabled]="playerAnswerForm.invalid" (click)="checkUserAnswer()">
+            Submit
+          </button>
+          <button class="btn btn-secondary" type="submit" [disabled]="!gameSession?.isSolved" (click)="startNewGame()">Start new Game!
+          </button>
+        </div>
       </div>
     </div>
   </div>

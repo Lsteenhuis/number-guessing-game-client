@@ -5,7 +5,7 @@
         <player-data (playerDataEventEmitter)="setPlayerData($event)"></player-data>
       </div>
       <div *ngSwitchCase="'GameSetup'">
-        <game-setup (gameSettingsEventEmitter)="setGameSettings($event)"></game-setup>
+        <game-setup [playerData]="playerData" (gameSettingsEventEmitter)="setGameSettings($event)"></game-setup>
       </div>
       <div *ngSwitchCase="'PlayGame'">
         <play-area-app [gameSession]="gameSettings" (startNewGameEventListener)="goToPreviousState()"></play-area-app>
