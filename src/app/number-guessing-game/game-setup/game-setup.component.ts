@@ -1,6 +1,6 @@
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Component, EventEmitter, Output } from '@angular/core';
-import { GameSettings } from './models/game-settings';
+import { GameSession } from './models/game-session';
 import { validateAmountOfNumbersToGuess } from './validators/amount-of-numbers-to-guess-validator';
 import { GameSettingsFactory } from './factories/game-settings.factory';
 
@@ -11,7 +11,7 @@ import { GameSettingsFactory } from './factories/game-settings.factory';
 })
 export class GameSetupComponent {
   @Output()
-  public gameSettingsEventEmitter: EventEmitter<GameSettings> = new EventEmitter<GameSettings>();
+  public gameSettingsEventEmitter: EventEmitter<GameSession> = new EventEmitter<GameSession>();
 
   public gameSettingsForm: FormGroup;
 
@@ -23,7 +23,7 @@ export class GameSetupComponent {
   }
 
   public startNewGame() {
-    const gameSettings: GameSettings = this.gameSettingsFactory.create(this.gameSettingsForm.value);
+    const gameSettings: GameSession = this.gameSettingsFactory.create(this.gameSettingsForm.value.amountOfNumbersToGuess);
 
     this.gameSettingsEventEmitter.emit(gameSettings);
   }
