@@ -60,7 +60,7 @@ export class PlayAreaComponent implements OnInit, OnDestroy {
 
     if (this.gameSession?.isSolved) {
       // todo is it okay if this post doesn't handle the promise?
-      this.gameSessionHttpService.post(this.gameSession);
+      this.gameSessionHttpService.post(this.gameSession.toExport);
     } else {
       this.resetStartOfGuessInMs();
     }
@@ -82,7 +82,7 @@ export class PlayAreaComponent implements OnInit, OnDestroy {
 
   public ngOnDestroy() {
     if (this.gameSession && !this.gameSession?.isSolved) {
-      this.gameSessionHttpService.post(this.gameSession);
+      this.gameSessionHttpService.post(this.gameSession.toExport);
     }
   }
 }

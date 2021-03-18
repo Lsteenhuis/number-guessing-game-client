@@ -1,6 +1,7 @@
 import { GameHints } from '../enums/game-hints';
 import { PlayerData } from '../../player-data/models/playerData';
 import { GameMetaData } from './game-meta-data';
+import { GameSessionExport } from '../interfaces/game-session-export';
 
 export class GameSession {
   private _isSolved: boolean = false;
@@ -43,6 +44,16 @@ export class GameSession {
     this.checkIfGameIsSolved(gameHints);
 
     return gameHints.join(' ');
+  }
+
+  public get toExport(): GameSessionExport {
+    return {
+      id: this._id,
+      isSolved: this._isSolved,
+      amountOfNumbersToGuess: this.amountOfNumbersToGuess,
+      amountOfGuesses: this._gameMetaData.amountOfGuesses,
+      entrySpeedInMs: this._gameMetaData.entrySpeedInMs
+    };
   }
 
   private createHintString(userInputNumber: number): GameHints[] {
