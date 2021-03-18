@@ -47,13 +47,12 @@ export class GameSession {
 
   private createHintString(userInputNumber: number): GameHints[] {
     const hintArray: GameHints[] = [];
-    const answerString: string[] = [...this.answer];
     const userInputString: string[] = [...userInputNumber.toString()];
 
     // eslint-disable-next-line no-plusplus
     for (let i = 0; i < this._amountOfNumbersToGuess; i++) {
       const currentUserNumber: string = userInputString[i];
-      const currentAnswerNumber: string = answerString[i];
+      const currentAnswerNumber: string = this.answer[i];
 
       if (!this.answer.includes(currentUserNumber)) {
         hintArray.push(GameHints.MINE);
