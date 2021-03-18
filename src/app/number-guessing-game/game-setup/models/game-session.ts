@@ -3,12 +3,11 @@ import { PlayerData } from '../../player-data/models/playerData';
 
 export class GameSession {
   private _isSolved: boolean = false;
-  private readonly _answer: string;
 
   public constructor(private _id: string,
                      private _amountOfNumbersToGuess: number,
+                     private _answer: string,
                      private _player: PlayerData) {
-    this._answer = this.generateRandomNumber(_amountOfNumbersToGuess);
   }
 
   public get answer(): string {
@@ -46,31 +45,24 @@ export class GameSession {
     return gameHints.join(' ');
   }
 
-  private generateRandomNumber(amountOfNumbers: number): string {
-    let numberString: string = '';
-
-    // eslint-disable-next-line no-plusplus
-    for (let i = 0; i < amountOfNumbers; i++) {
-      numberString += Math.floor(Math.random() * 9);
-    }
-
-    return numberString;
-  }
-
   private createHintString(userInputNumber: number): GameHints[] {
     const hintArray: GameHints[] = [];
     const answerString: string[] = [...this.answer];
     const userInputString: string[] = [...userInputNumber.toString()];
 
-    userInputString.forEach((guessedNumber: string) => {
-      if (!answerString.includes(guessedNumber)) {
+    // eslint-disable-next-line no-plusplus
+    for (let i = 0; i < this._amountOfNumbersToGuess; i++) {
+      const currentUserNumber: string = userInputString[i];
+      const currentAnswerNumber: string = answerString[i];
+
+      if (!this.answer.includes(currentUserNumber)) {
         hintArray.push(GameHints.MINE);
-      } else if (answerString.indexOf(guessedNumber) === userInputString.indexOf(guessedNumber)) {
+      } else if (currentAnswerNumber === currentUserNumber) {
         hintArray.push(GameHints.BOAT);
       } else {
         hintArray.push(GameHints.BUOY);
       }
-    });
+    }
 
     return hintArray;
   }
