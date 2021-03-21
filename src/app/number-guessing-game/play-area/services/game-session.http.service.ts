@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { environment } from '../../../../environments/environment';
 import { GameSessionExport } from '../../game-setup/interfaces/game-session-export';
 
 @Injectable({
@@ -11,6 +10,6 @@ export class GameSessionHttpService {
   }
 
   public post(gameSessionExport: GameSessionExport): Promise<any> {
-    return this.httpClient.post(`${environment.SERVER_URL}/gameSession`, gameSessionExport).toPromise();
+    return this.httpClient.post('/gameMetaData', gameSessionExport).toPromise();
   }
 }
