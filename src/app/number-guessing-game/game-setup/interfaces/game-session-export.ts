@@ -1,7 +1,8 @@
 export interface GameSessionExport {
   id: string;
   isSolved: boolean;
+  userName: string;
   amountOfNumbersToGuess: number;
-  amountOfGuesses: number;
+  amountOfGuessed: number;
   entrySpeedInMs: number[];
 }

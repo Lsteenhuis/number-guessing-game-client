@@ -49,9 +49,10 @@ export class GameSession {
   public get toExport(): GameSessionExport {
     return {
       id: this._id,
+      userName: this._player.userName,
       isSolved: this._isSolved,
       amountOfNumbersToGuess: this.amountOfNumbersToGuess,
-      amountOfGuesses: this._gameMetaData.amountOfGuesses,
+      amountOfGuessed: this._gameMetaData.amountOfGuesses,
       entrySpeedInMs: this._gameMetaData.entrySpeedInMs
     };
   }
