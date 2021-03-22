@@ -7,7 +7,8 @@
   </div>
   <div class="row">
     <div class="game-hint-wrapper margin-bottom-25">
-      <p>{{gameHint}}</p><br/>
+      <p *ngIf="!gameSession?.isSolved">{{gameHint}}</p><br/>
+      <p *ngIf="gameSession?.isSolved">Congratulations you found the correct number!</p><br/>
     </div>
   </div>
   <div class="row">
@@ -20,7 +21,7 @@
       </div>
 
       <div class="game-button-wrapper">
-        <button class="btn btn-primary  margin-right-25" type="submit" [disabled]="playerAnswerForm.invalid" (click)="checkUserAnswer()">
+        <button class="btn btn-primary  margin-right-25" type="submit" [disabled]="playerAnswerForm.invalid || gameSession?.isSolved" (click)="checkUserAnswer()">
           Submit
         </button>
         <button class="btn btn-secondary" type="submit" [disabled]="!gameSession?.isSolved" (click)="startNewGame()">Start new Game!
