@@ -59,7 +59,6 @@ export class PlayAreaComponent implements OnInit, OnDestroy {
     this.gameHint = this.gameSession?.compareUserInputToAnswer(userInput);
 
     if (this.gameSession?.isSolved) {
-      // todo is it okay if this post doesn't handle the promise?
       this.gameSessionHttpService.post(this.gameSession.toExport);
     } else {
       this.resetStartOfGuessInMs();
@@ -78,11 +77,5 @@ export class PlayAreaComponent implements OnInit, OnDestroy {
     const currentTimeInMs: number = Date.now();
 
     return currentTimeInMs - this.startOfGuessInMs;
-  }
-
-  public ngOnDestroy() {
-    if (this.gameSession && !this.gameSession?.isSolved) {
-      this.gameSessionHttpService.post(this.gameSession.toExport);
-    }
   }
 }
