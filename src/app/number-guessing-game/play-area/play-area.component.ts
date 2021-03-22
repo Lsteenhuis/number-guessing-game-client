@@ -21,7 +21,7 @@ import { GameSessionHttpService } from './services/game-session.http.service';
   templateUrl: './play-area.component.html',
   styleUrls: ['./play-area.component.scss']
 })
-export class PlayAreaComponent implements OnInit, OnDestroy {
+export class PlayAreaComponent implements OnInit {
   @Input()
   public gameSession: GameSession | undefined;
 
