@@ -9,7 +9,7 @@ export class RandomNumberGenerator {
 
     // eslint-disable-next-line no-plusplus
     for (let i = 0; i < amountOfNumbers; i++) {
-      numberString += Math.floor(Math.random() * 9);
+      numberString += Math.floor(Math.random() * 9) + 1;
     }
 
     return numberString;
