@@ -21,6 +21,12 @@ export class PlayerDataComponent {
   @Output()
   public playerDataEventEmitter: EventEmitter<PlayerData> = new EventEmitter<PlayerData>();
 
+  public minDate = {
+    year: 1900,
+    month: 1,
+    day: 1
+  };
+
   public playerDataForm: FormGroup;
 
   public constructor(private readonly formBuilder: FormBuilder,
