@@ -1,9 +1,11 @@
 <div>
   <div class="row">
-    <p>GameId: {{gameSession?.id}}<br/>
-      PlayerName: {{gameSession?.playerData?.userName}}<br/>
-      Date of Birth: {{gameSession?.playerData?.userDateOfBirth}}<br/>
-    </p>
+    <div class="margin-bottom-25">
+      <p>GameId: {{gameSession?.id}}<br/>
+        PlayerName: {{gameSession?.playerData?.userName}}<br/>
+        Date of Birth: {{gameSession?.playerData?.userDateOfBirth}}<br/>
+      </p>
+    </div>
   </div>
   <div class="row">
     <div class="game-hint-wrapper margin-bottom-25">
@@ -21,7 +23,8 @@
       </div>
 
       <div class="game-button-wrapper">
-        <button class="btn btn-primary  margin-right-25" type="submit" [disabled]="playerAnswerForm.invalid || gameSession?.isSolved" (click)="checkUserAnswer()">
+        <button class="btn btn-primary  margin-right-25" type="submit" [disabled]="playerAnswerForm.invalid || gameSession?.isSolved"
+                (click)="checkUserAnswer()">
           Submit
         </button>
         <button class="btn btn-secondary" type="submit" [disabled]="!gameSession?.isSolved" (click)="startNewGame()">Start new Game!
